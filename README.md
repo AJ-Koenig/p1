@@ -1,11 +1,11 @@
 # Pset 1
 
 
-[![Build Status](https://travis-ci.com/AjayKayMaster/p0.svg?branch=master)](https://travis-ci.com/AjayKayMaster/p0)
+[![Build Status](https://travis-ci.com/AjayKayMaster/p1.svg?branch=master)](https://travis-ci.com/AjayKayMaster/p1)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/05eb6039af94d5363ef2/maintainability)](https://codeclimate.com/github/AjayKayMaster/p0/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a4e4fe0b99aefd1f09f5/maintainability)](https://codeclimate.com/github/AjayKayMaster/p1/maintainability)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/05eb6039af94d5363ef2/test_coverage)](https://codeclimate.com/github/AjayKayMaster/p0/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a4e4fe0b99aefd1f09f5/test_coverage)](https://codeclimate.com/github/AjayKayMaster/p1/test_coverage)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->

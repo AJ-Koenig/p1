@@ -4,7 +4,7 @@
 """Tests for `pset_1` package."""
 
 import os
-from tempfile import TemporaryDirectory
+from tempfile import TemporaryDirectory,NamedTemporaryFile
 from unittest import TestCase
 
 from pset_1.hash_str import hash_str
@@ -48,7 +48,7 @@ class AtomicWriteTests(TestCase):
                 with atomic_write(fp, "w") as f:
                     tmpfile = f.name
                     assert os.path.exists(tmpfile)
-                    raise FakeFileFailure()
+                    raise FakeFileFailure("Test")
 
             assert not os.path.exists(tmpfile)
             assert not os.path.exists(fp)
@@ -56,4 +56,11 @@ class AtomicWriteTests(TestCase):
     def test_file_exists(self):
         """Ensure an error is raised when a file exists"""
 
-        raise NotImplementedError()
+        with self.assertRaises(FileExistsError):
+            with TemporaryDirectory() as tmp:
+
+                tempfile = NamedTemporaryFile(dir=tmp,suffix=".txt")
+                fp = os.path.join(tmp, tempfile.name)
+
+                with atomic_write(fp, "w") as f:
+                    pass

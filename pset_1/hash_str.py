@@ -1,5 +1,6 @@
+import os
 from typing import Union
-
+from hashlib import sha256
 
 def get_csci_salt() -> bytes:
     """Returns the appropriate salt for CSCI E-29
@@ -8,7 +9,12 @@ def get_csci_salt() -> bytes:
     """
 
     # Hint: use os.environment and bytes.fromhex
-    raise NotImplementedError()
+    raw_salt = os.getenv("CSCI_SALT")
+    salt = bytes.fromhex(raw_salt) if raw_salt!=None else None
+    if not salt:
+        raise ValueError("Salt returned cannot have the value '{}'\n"
+                         "Are you using the pipenv shell?".format(salt))
+    return salt
 
 
 def hash_str(some_val: Union[str, bytes], salt: Union[str, bytes] = "") -> bytes:
@@ -20,7 +26,9 @@ def hash_str(some_val: Union[str, bytes], salt: Union[str, bytes] = "") -> bytes
     :param salt: Add randomness to the hashing, can be str or bytes
     :return: sha256 hash digest of some_val with salt, type bytes
     """
-    raise NotImplementedError()
+    salt = salt if type(salt)==bytes else salt.encode()
+    some_val = some_val if type(some_val) == bytes else some_val.encode()
+    return sha256(salt+some_val).digest()
 
 
 def get_user_id(username: str) -> str:
