@@ -40,10 +40,13 @@ def atomic_write(file: Union[str, os.PathLike], mode: str = "w", as_file: bool =
 
     try:
         # yield the temp file to permit writing as a ContextManager
-        if as_file:
-            yield temp
-        else:
-            yield temp_file_name
+        # if as_file:
+        #     yield temp
+        # else:
+        #     yield temp_file_name
+
+        yield (temp if as_file else temp_file_name)
+
     except Exception:
         # Print last exception
         traceback.print_exc()
@@ -64,7 +67,7 @@ def atomic_write(file: Union[str, os.PathLike], mode: str = "w", as_file: bool =
         # Rename it.
         os.rename(temp_file_name, file)
     finally:
+        # If the temp file exists, then it was not renamed, and must be closed and deleted.
         if os.path.exists(temp_file_name):
-            # If the temp file exists, then it was not renamed, and must be closed and deleted.
             temp.close()
             os.remove(temp_file_name)
