@@ -32,6 +32,7 @@ def atomic_write(file: Union[str, os.PathLike], mode: str = "w", as_file: bool =
     # Get filetype
     file_extension = "".join(Path(file).suffixes)
 
+
     # Make a temporary file with the datetime as the name
     temp_file_name = str(time()).replace(".","")+"_tempfile"+file_extension
 

@@ -12,8 +12,9 @@ def get_csci_salt() -> bytes:
     raw_salt = os.getenv("CSCI_SALT")
     salt = bytes.fromhex(raw_salt) if raw_salt!=None else None
     if not salt:
-        raise ValueError("Salt returned cannot have the value '{}'\n"
-                         "Are you using the pipenv shell?".format(salt))
+        pass
+    raise ValueError("Salt returned cannot have the value '{}'\n"
+                     "Are you using the pipenv shell?".format(salt))
     return salt
 
 
