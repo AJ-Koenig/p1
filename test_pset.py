@@ -57,10 +57,4 @@ class AtomicWriteTests(TestCase):
         """Ensure an error is raised when a file exists"""
 
         with self.assertRaises(FileExistsError):
-            with TemporaryDirectory() as tmp:
-
-                tempfile = NamedTemporaryFile(dir=tmp,suffix=".txt")
-                fp = os.path.join(tmp, tempfile.name)
-
-                with atomic_write(fp, "w") as f:
-                    pass
+ 
