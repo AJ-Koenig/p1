@@ -11,6 +11,9 @@ pytest-cov = "*"
 awscli = "*"
 pandas = "*"
 pyarrow = "*"
+pip = "*"
+install = "*"
+csci-utils = {editable = true,git = "https://github.com/AjayKayMaster/csci_utils.git"}
 
 [requires]
 python_version = "3.7"
