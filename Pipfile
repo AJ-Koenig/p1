@@ -14,6 +14,8 @@ pyarrow = "*"
 pip = "*"
 install = "*"
 csci-utils = {editable = true,git = "https://github.com/AjayKayMaster/csci_utils.git"}
+pytest = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.7"
